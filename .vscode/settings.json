@@ -1,34 +1,38 @@
 {
+	"[bat]": {
+		"editor.insertSpaces": true,
+		"editor.rulers": [ 60, 76 ],
+		"editor.tabSize": 4,
+	},
 	"[c]": {
 		"editor.insertSpaces": true,
 		"editor.rulers": [ 44, 60, 76 ],
+		"editor.tabSize": 4,
+	},
+	"[cpp]": {
+		"editor.insertSpaces": true,
+		"editor.rulers": [ 60, 64, 68, 76 ],
 		"editor.tabSize": 4,
 	},
 	"[cmake]": {
 		"editor.insertSpaces": false,
 		"editor.tabSize": 4,
 	},
-	"[cpp]": {
-		"editor.insertSpaces": true,
-		"editor.rulers": [ 60, 76 ],
-		"editor.tabSize": 4,
-	},
 	"[json]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+	},
+	"[markdown]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
 	},
 	"[ruby]": {
 		"editor.insertSpaces": true,
-		"editor.rulers": [ 60, 76 ],
 		"editor.tabSize": 2,
 	},
-	"[rust]": {
+	"[shellscript]": {
 		"editor.insertSpaces": true,
 		"editor.rulers": [ 60, 76 ],
-		"editor.tabSize": 4,
-	},
-	"[toml]": {
-		"editor.insertSpaces": false,
 		"editor.tabSize": 2,
 	},
 	"cmake.configureOnOpen": false,
