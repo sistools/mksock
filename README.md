@@ -1,11 +1,10 @@
 # mksock <!-- omit in toc -->
 
-Strips trailing new line(s) from input
+Makes a named socket.
 
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
-- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Components](#components)
@@ -39,7 +38,13 @@ The project creates a single executable program, **mksock**.
 ## Examples
 
 ```bash
-$ mksock /tmp/socket.sock 0777
+$ pwd
+mksock /tmp/mysocket.sock 0777
+$ ll /tmp/
+ . . .
+srwxr-xr-x   1 mwsis  wheel     0B 11 Mar 19:34 mysocket.sock
+ . . .
+$
 ```
 
 
@@ -77,6 +82,7 @@ For unit-testing, **mksock** depends additionally on:
 Other (similar) project include:
 
 * [**chomp**](https://github.com/sistools/chomp)
+* [**errni**](https://github.com/sistools/errni)
 * [**lstrip**](https://github.com/sistools/lstrip)
 * [**rstrip**](https://github.com/sistools/rstrip)
 
