@@ -78,13 +78,20 @@ The primary choice for installation is by use of **CMake**.
 
     ```plaintext
     Synesis System Tools
-    mksock version 0.1.0.0
-    Copyright (c) 2020-2024 Synesis Information Systems
-    Strips any leading whitespace, if present, from input lines
+    mksock version 0.0.0.0
+    Copyright (c) 2025 Synesis Information Systems
+    Creates a socket
 
-    mksock [ ... flags/options ... ] [ { <input-file> | - } [ { <output-file> | - } ]]
+    mksock [ ... flags/options ... ] <socket-path> [ <file-permissions> ]
 
     Flags:
+
+        behaviour:
+
+        -O
+        --overwrite
+            causes overwrite of socket
+
 
         standard flags:
 
@@ -125,39 +132,29 @@ The primary choice for installation is by use of **CMake**.
 
     ```bash
     $ pwd
-    /Users/.../sistools/mksock --help
-    ```
-
-    ```
-    Synesis System Tools
-    mksock version 0.0.0.0
-    Copyright (c) 2025 Synesis Information Systems
-    Creates a socket
-
-    mksock [ ... flags/options ... ] <socket-path> [ <file-permissions> ]
-
-    Flags:
-
-        behaviour:
-
-        -O
-        --overwrite
-            causes overwrite of socket
-
-
-        standard flags:
-
-        --help
-            displays this help and terminates
-
-        --version
-            displays version information and terminates
+    /Users/.../sistools/mksock
+    $ pwd | mksock
+    /Users/.../sistools/mksock%
+    $
     ```
 
 
 ### via custom makefile (Clang / GCC)
 
-T.B.C.
+Provided in the distribution is a hand-written **makefile**, which handles the four 3rd-party library dependencies via environment variables. For each one, you must either specify an environment variable that holds the value of the root directory of that library's source tree or an environment variable that states that no such is required.
+
+| Library     | Env. var. for root directory    | Env. var. for override    |
+| ----------- | ------------------------------- | ------------------------- |
+| **CLASP**   | `CLASP_ROOT`                    | `CLASP_USE_INSTALL`       |
+| **Catch2**  | `CATCH`                         | `CATCH_USE_INSTALL`       |
+| **STLSoft** | `STLSOFT`                       | `STLSOFT_USE_INSTALL`     |
+| **xTests**  | `XTESTS_C_ROOT`                 | `XTESTS_USE_INSTALL`      |
+
+For example, if you have already obtained and installed **CLASP**, **Catch2**, and **xTests** (via their respective **CMake** builds), but have a local version of **STLSoft** that you wish to use, then you would issue a command such as:
+
+```bash
+$ CLASP_USE_INSTALL=1 CATCH_USE_INSTALL=1 STLSOFT=~/my-STLSoft-root XTESTS_USE_INSTALL=1 make test
+```
 
 
 <!-- ########################### end of file ########################### -->

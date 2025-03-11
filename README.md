@@ -17,9 +17,10 @@ Makes a named socket.
   - [Related projects](#related-projects)
   - [License](#license)
 
+
 ## Introduction
 
-**mksock** is a small, standalone utility program that removes end-of-line sequence from lines in its input.
+**mksock** is a small, standalone utility program that creates a socket.
 
 
 ## Installation
@@ -38,7 +39,7 @@ The project creates a single executable program, **mksock**.
 
 ```bash
 $ pwd
-mksock /tmp/mysocket.sock
+mksock /tmp/mysocket.sock 0777
 $ ll /tmp/
  . . .
 srwxr-xr-x   1 mwsis  wheel     0B 11 Mar 19:34 mysocket.sock
@@ -49,13 +50,16 @@ $
 
 ## Project Information
 
+
 ### Where to get help
 
 [GitHub Page](https://github.com/sistools/mksock "GitHub Page")
 
+
 ### Contribution guidelines
 
 Defect reports, feature requests, and pull requests are welcome on [the **cstring** GitHub page](https://github.com/sistools/mksock).
+
 
 ### Dependencies
 

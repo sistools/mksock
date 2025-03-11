@@ -90,9 +90,9 @@ build/makefile.tools.xml
 
 clasp.a
 libclasp.a
-liberrni.a
-errni
-errni_test
+libmksock.a
+mksock
+mksock_test
 
 
 # files (by pattern)
