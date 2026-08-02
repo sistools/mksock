@@ -4,6 +4,7 @@
 #include <inetstl/util/uds_helpers.h>
 #include <platformstl/platformstl.h>
 
+#include <errno.h>
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
@@ -15,6 +16,14 @@ sistool_mksock(
 ,   int         flags
 ) {
     int sk;
+
+    ((void)file_permissions);
+
+    if (NULL == socket_path ||
+        '\0' == *socket_path)
+    {
+        return EINVAL;
+    }
 
     if (-1 == (sk = socket(AF_UNIX, SOCK_DGRAM, 0)))
     {
