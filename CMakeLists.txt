@@ -121,6 +121,12 @@ option(BUILD_TESTING "Build tests" ON)
 # ######################################
 # features
 
+# This tool targets Unix only (AF_UNIX sockets).
+if(WIN32)
+
+	message(FATAL_ERROR "${PROJECT_NAME} targets Unix only")
+endif()
+
 
 # ######################################
 # dependencies
