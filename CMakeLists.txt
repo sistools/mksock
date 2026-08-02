@@ -5,7 +5,7 @@
 # Purpose:  Top-level CMake lists file for mksock
 #
 # Created:  6th March 2025
-# Updated:  11th March 2025
+# Updated:  2nd August 2026
 #
 # ######################################################################## #
 
@@ -185,7 +185,7 @@ endif(BUILD_TESTING)
 
 if(BUILD_TESTING)
 
-	set(xTests_REQUIRED_VERSION_ 0.26)
+	set(xTests_REQUIRED_VERSION_ 0.26.1)
 
 	find_package(xTests ${xTests_REQUIRED_VERSION_} REQUIRED)
 
