@@ -56,9 +56,8 @@ while [[ $# -gt 0 ]]; do
   case $1 in
     --help)
 
+      [ -f "$Dir/.sis/script_info_lines.txt" ] && cat "$Dir/.sis/script_info_lines.txt"
       cat << EOF
-mksock is a small, standalone utility program that creates a named socket
-Copyright (c) 2025, Matthew Wilson and Synesis Information Systems
 Removes all known CMake artefacts
 
 $ScriptPath [ ... flags/options ... ]

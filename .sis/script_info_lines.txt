@@ -1,0 +1,2 @@
+mksock is a small, standalone utility program that creates a named socket
+Copyright (c) 2025-2026, Matthew Wilson and Synesis Information Systems
