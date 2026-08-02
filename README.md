@@ -4,7 +4,6 @@ Makes a named socket.
 
 
 ![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![GitHub release](https://img.shields.io/github/v/release/sistools/mksock.svg)](https://github.com/sistools/mksock/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/sistools/mksock)](https://github.com/sistools/mksock/commits/master)
