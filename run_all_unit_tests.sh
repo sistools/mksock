@@ -17,6 +17,7 @@ ProjectName=$(cat "$Dir/.sis/project_name.txt")
 
 ListOnly=0
 RunMake=1
+Verbose=0
 
 
 # ##########################################################
@@ -32,6 +33,10 @@ while [[ $# -gt 0 ]]; do
     --no-make|-M)
 
       RunMake=0
+      ;;
+    --verbose|-v)
+
+      Verbose=1
       ;;
     --help)
 
@@ -52,6 +57,10 @@ Flags/options:
     -M
     --no-make
         does not execute CMake and make before running tests
+
+    -v
+    --verbose
+        lists each test program before executing it
 
 
     standard flags:
@@ -123,6 +132,11 @@ if [ $status -eq 0 ]; then
       continue
     fi
 
+    if [ $Verbose -ne 0 ]; then
+
+      echo "executing $f:"
+    fi
+
     if $f; then
 
       :
@@ -139,4 +153,3 @@ exit $status
 
 
 # ############################## end of file ############################# #
-
