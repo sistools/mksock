@@ -31,7 +31,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 project(mksock
 	DESCRIPTION "mksock is a small, standalone utility program that creates a named socket."
-	HOMEPAGE_URL "https://github.com/synesissoftware/mksock"
+	HOMEPAGE_URL "https://github.com/sistools/mksock"
 	LANGUAGES C CXX
 )
 
