@@ -119,6 +119,16 @@ include(BuildType)
 
 
 # ############################
+# CLASP
+
+set(CLASP_REQUIRED_VERSION_ 0.15)
+
+find_package(CLASP ${CLASP_REQUIRED_VERSION_} REQUIRED)
+
+message("-- CMake package CLASP found (version ${CLASP_VERSION}; ${CLASP_REQUIRED_VERSION_} requested)")
+
+
+# ############################
 # STLSoft
 
 if(DEFINED STLSOFT)
@@ -144,16 +154,6 @@ if(DEFINED STLSOFT_INCLUDE_DIR)
 
 	include_directories(${STLSOFT_INCLUDE_DIR})
 endif()
-
-
-# ############################
-# CLASP
-
-set(CLASP_REQUIRED_VERSION_ 0.15)
-
-find_package(CLASP ${CLASP_REQUIRED_VERSION_} REQUIRED)
-
-message("-- CMake package CLASP found (version ${CLASP_VERSION}; ${CLASP_REQUIRED_VERSION_} requested)")
 
 
 # ############################
