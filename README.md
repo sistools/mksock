@@ -3,6 +3,13 @@
 Makes a named socket.
 
 
+![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![GitHub release](https://img.shields.io/github/v/release/sistools/mksock.svg)](https://github.com/sistools/mksock/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/sistools/mksock)](https://github.com/sistools/mksock/commits/master)
+[![CI](https://github.com/sistools/mksock/actions/workflows/ci.yml/badge.svg)](https://github.com/sistools/mksock/actions/workflows/ci.yml)
+
+
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)

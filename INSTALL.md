@@ -26,6 +26,7 @@ Detailed instructions are provided in the [**REQUISITES.md**](./REQUISITES.md) d
 
 ## Building
 
+
 ### via CMake
 
 The primary choice for installation is by use of **CMake**.
@@ -78,7 +79,7 @@ The primary choice for installation is by use of **CMake**.
 
     ```plaintext
     Synesis System Tools
-    mksock version 0.0.0.0
+    mksock version 0.0.1.0
     Copyright (c) 2025 Synesis Information Systems
     Creates a socket
 

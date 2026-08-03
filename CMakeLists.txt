@@ -5,7 +5,7 @@
 # Purpose:  Top-level CMake lists file for mksock
 #
 # Created:  6th March 2025
-# Updated:  11th March 2025
+# Updated:  3rd August 2026
 #
 # ######################################################################## #
 
@@ -31,7 +31,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 project(mksock
 	DESCRIPTION "mksock is a small, standalone utility program that creates a named socket."
-	HOMEPAGE_URL "https://github.com/synesissoftware/mksock"
+	HOMEPAGE_URL "https://github.com/sistools/mksock"
 	LANGUAGES C CXX
 )
 
@@ -100,10 +100,32 @@ endif(MSVC)
 # includes - 1
 
 include(BuildType)
+#[====[
+include(LanguageFullVersion)
+include(TargetMacros)
+#]====]
 
 
 # ################################################
-# dependencies and options
+# dependencies, features, and options
+
+
+# ######################################
+# options
+
+option(BUILD_EXAMPLES "Build examples" ON)
+
+option(BUILD_TESTING "Build tests" ON)
+
+
+# ######################################
+# features
+
+# This tool targets Unix only (AF_UNIX sockets).
+if(WIN32)
+
+	message(FATAL_ERROR "${PROJECT_NAME} targets Unix only")
+endif()
 
 
 # ######################################
@@ -112,10 +134,47 @@ include(BuildType)
 # required:
 # - CLASP;
 # - STLSoft;
+#
+#
+# required if testing enabled:
+# - Catch2 - required for testing;
 # - xTests - required for testing;
 #
 # optional:
-# - Catch2 - required for testing;
+
+
+# ############################
+# Catch2
+
+if(BUILD_TESTING)
+
+	set(Catch2_REQUIRED_VERSION_ 2.0...<3.0)
+
+	find_package(Catch2 ${Catch2_REQUIRED_VERSION_} QUIET)
+
+	if(Catch2_FOUND)
+
+		message("-- CMake package Catch2 found (version ${Catch2_VERSION}; ${Catch2_REQUIRED_VERSION_} requested)")
+	else(Catch2_FOUND)
+
+		if(EXISTS ${CMAKE_SOURCE_DIR}/include)
+
+			message("-- -- adding '${CMAKE_SOURCE_DIR}/include' to include-directories for testing")
+
+			include_directories(${CMAKE_SOURCE_DIR}/include)
+		endif()
+	endif(Catch2_FOUND)
+endif(BUILD_TESTING)
+
+
+# ############################
+# CLASP
+
+set(CLASP_REQUIRED_VERSION_ 0.15)
+
+find_package(CLASP ${CLASP_REQUIRED_VERSION_} REQUIRED)
+
+message("-- CMake package CLASP found (version ${CLASP_VERSION}; ${CLASP_REQUIRED_VERSION_} requested)")
 
 
 # ############################
@@ -147,45 +206,11 @@ endif()
 
 
 # ############################
-# CLASP
-
-set(CLASP_REQUIRED_VERSION_ 0.15)
-
-find_package(CLASP ${CLASP_REQUIRED_VERSION_} REQUIRED)
-
-message("-- CMake package CLASP found (version ${CLASP_VERSION}; ${CLASP_REQUIRED_VERSION_} requested)")
-
-
-# ############################
-# Catch2
-
-if(BUILD_TESTING)
-
-	set(Catch2_REQUIRED_VERSION_ 2.0...<3.0)
-
-	find_package(Catch2 ${Catch2_REQUIRED_VERSION_} QUIET)
-
-	if(Catch2_FOUND)
-
-		message("-- CMake package Catch2 found (version ${Catch2_VERSION}; ${Catch2_REQUIRED_VERSION_} requested)")
-	else(Catch2_FOUND)
-
-		if(EXISTS ${CMAKE_SOURCE_DIR}/include)
-
-			message("-- -- adding '${CMAKE_SOURCE_DIR}/include' to include-directories for testing")
-
-			include_directories(${CMAKE_SOURCE_DIR}/include)
-		endif()
-	endif(Catch2_FOUND)
-endif(BUILD_TESTING)
-
-
-# ############################
 # xTests
 
 if(BUILD_TESTING)
 
-	set(xTests_REQUIRED_VERSION_ 0.26)
+	set(xTests_REQUIRED_VERSION_ 0.26.4)
 
 	find_package(xTests ${xTests_REQUIRED_VERSION_} REQUIRED)
 
@@ -205,14 +230,14 @@ include(GNUInstallDirs)
 
 
 # ##########################################################
-# tool - mksock
+# tool
 
-add_executable(mksock
+add_executable(${PROJECT_NAME_LOWER}
 	entry.c
-	mksock.c
+	${PROJECT_NAME_LOWER}.c
 )
 
-target_compile_options(mksock
+target_compile_options(${PROJECT_NAME_LOWER}
 	PRIVATE
 		$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
 			-Werror -Wall -Wextra -pedantic
@@ -228,12 +253,12 @@ target_compile_options(mksock
 		>
 )
 
-target_link_libraries(mksock
+target_link_libraries(${PROJECT_NAME_LOWER}
 	CLASP::core
 	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
-install(TARGETS mksock
+install(TARGETS ${PROJECT_NAME_LOWER}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
@@ -249,12 +274,12 @@ if(BUILD_TESTING)
 
 	message("-- enabled building of tests ...")
 
-	add_executable(mksock_test
-		mksock_test.cpp
-		mksock.c
+	add_executable(${PROJECT_NAME_LOWER}_test
+		${PROJECT_NAME_LOWER}_test.cpp
+		${PROJECT_NAME_LOWER}.c
 	)
 
-	target_compile_options(mksock_test
+	target_compile_options(${PROJECT_NAME_LOWER}_test
 		PRIVATE
 			$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
 				-Werror -Wall -Wextra -pedantic
@@ -271,9 +296,9 @@ if(BUILD_TESTING)
 			>
 	)
 
-	target_link_libraries(mksock_test
-		CLASP::core
+	target_link_libraries(${PROJECT_NAME_LOWER}_test
 		$<IF:$<STREQUAL:${Catch2_FOUND},>,,Catch2::Catch2>
+		CLASP::core
 		$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 		xTests::core
 	)
