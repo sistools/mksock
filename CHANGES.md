@@ -1,6 +1,13 @@
 # mksock - Changes <!-- omit in toc -->
 
 
+## 0.1.0 - 7th August 2026
+
+* Consume **sistools-common-c** for `--help` / `--version` via **`stcc_show_help()`** / **`stcc_show_version()`**;
+* Version output now uses **Diagnosticism** version strings (via **sistools-common-c**);
+* Copyright years updated to 2025-2026;
+
+
 ## 0.0.1 - 3rd August 2026
 
 * Added modular GitHub Actions CI (**ci.yml** / **ci-cell.yml**) for Linux/macOS (Unix-only tool);

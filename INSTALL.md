@@ -12,6 +12,7 @@
 The **mksock** program (implemented in [**entry.c**](./entry.c)) is implemented in terms of:
 
 * [**CLASP**](https://github.com/synesissoftware/CLASP) - for command-line handling;
+* [**sistools-common-c**](https://github.com/sistools/sistools-common-c) - for shared `--help` / `--version` usage helpers;
 * [**STLSoft**](https://github.com/synesissoftware/STLSoft-1.10) - for CLI utility functions;
 
 Further, the **mksock_test** program (implemented in [**mksock_test.cpp**](./mksock_test.cpp)), which is used only to test the **mksock** library, also depends on:
@@ -79,8 +80,8 @@ The primary choice for installation is by use of **CMake**.
 
     ```plaintext
     Synesis System Tools
-    mksock version 0.0.1.0
-    Copyright (c) 2025 Synesis Information Systems
+    mksock v0.1.0-alpha1
+    Copyright (c) 2025-2026 Synesis Information Systems
     Creates a socket
 
     mksock [ ... flags/options ... ] <socket-path> [ <file-permissions> ]
