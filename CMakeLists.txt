@@ -5,7 +5,7 @@
 # Purpose:  Top-level CMake lists file for mksock
 #
 # Created:  6th March 2025
-# Updated:  3rd August 2026
+# Updated:  7th August 2026
 #
 # ######################################################################## #
 
@@ -134,6 +134,7 @@ endif()
 # required:
 # - CLASP;
 # - STLSoft;
+# - sistools-common-c;
 #
 #
 # required if testing enabled:
@@ -175,6 +176,16 @@ set(CLASP_REQUIRED_VERSION_ 0.15)
 find_package(CLASP ${CLASP_REQUIRED_VERSION_} REQUIRED)
 
 message("-- CMake package CLASP found (version ${CLASP_VERSION}; ${CLASP_REQUIRED_VERSION_} requested)")
+
+
+# ############################
+# sistools-common-c
+
+set(sistools-common-c_REQUIRED_VERSION_ 0.1)
+
+find_package(sistools-common-c ${sistools-common-c_REQUIRED_VERSION_} REQUIRED)
+
+message("-- CMake package sistools-common-c found (version ${sistools-common-c_VERSION}; ${sistools-common-c_REQUIRED_VERSION_} requested)")
 
 
 # ############################
@@ -255,6 +266,7 @@ target_compile_options(${PROJECT_NAME_LOWER}
 
 target_link_libraries(${PROJECT_NAME_LOWER}
 	CLASP::core
+	sistools-common-c::core
 	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
