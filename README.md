@@ -27,7 +27,7 @@ Makes a named socket.
 
 ## Introduction
 
-**mksock** is a small, standalone utility program that creates a socket.
+**mksock** is a small, standalone utility program that creates a named socket, which can be useful when testing file-system utilities and libraries (such as [**recls**](https://github.com/synesissoftware/recls)).
 
 
 ## Installation
@@ -47,7 +47,7 @@ The project creates a single executable program, **mksock**.
 ```bash
 $ pwd
 mksock /tmp/mysocket.sock 0777
-$ ll /tmp/
+$ ls -al /tmp/
  . . .
 srwxr-xr-x   1 mwsis  wheel     0B 11 Mar 19:34 mysocket.sock
  . . .
@@ -65,7 +65,7 @@ $
 
 ### Contribution guidelines
 
-Defect reports, feature requests, and pull requests are welcome on [the **cstring** GitHub page](https://github.com/sistools/mksock).
+Defect reports, feature requests, and pull requests are welcome on [the **mksock** GitHub page](https://github.com/sistools/mksock).
 
 
 ### Dependencies
