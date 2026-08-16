@@ -11,7 +11,8 @@
 *.hxx linguist-language=C++
 *.sh linguist-detectable=false
 *.sln linguist-detectable=false
+*.vcproj linguist-detectable=false
 *.vcxproj linguist-detectable=false
 *.vimrc linguist-detectable=false
-CMakeLists.txt linguist-vendored
+CMakeLists.txt linguist-detectable=false
 makefile linguist-detectable=false
