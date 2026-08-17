@@ -1,0 +1,33 @@
+.\" Copyright (c) 2025-2026, Matthew Wilson and Synesis Information Systems
+.\"
+.TH MKSOCK 1 "August 2026" "mksock 0.1.0" "User Commands"
+.SH NAME
+mksock \- create a UNIX-domain socket
+.SH SYNOPSIS
+.B mksock
+[\fIOPTIONS\fR]
+.I SOCKET_PATH
+[\fIFILE_PERMISSIONS\fR]
+.SH DESCRIPTION
+.B mksock
+creates and binds a UNIX-domain datagram socket at
+.IR SOCKET_PATH .
+The default file permissions are 0666. The optional permissions value is
+interpreted as a numeric value.
+.SH OPTIONS
+.TP
+.BR \-O ", " \-\-overwrite
+Remove an existing socket at the requested path before binding.
+.TP
+.B \-\-help
+Display help and exit.
+.TP
+.B \-\-version
+Display version information and exit.
+.SH REPORTING BUGS
+Report defects and feature requests at
+https://github.com/sistools/mksock.
+.SH AUTHOR
+Matthew Wilson and Synesis Information Systems
+.br
+Copyright (c) 2025\-2026, Matthew Wilson and Synesis Information Systems

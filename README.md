@@ -27,7 +27,9 @@ Makes a named socket.
 
 ## Introduction
 
-**mksock** is a small, standalone utility program that creates a named socket, which can be useful when testing file-system utilities and libraries (such as [**recls**](https://github.com/synesissoftware/recls)).
+**mksock** is a small, standalone Unix-only utility program that creates an
+`AF_UNIX` named socket, which can be useful when testing file-system utilities
+and libraries (such as [**recls**](https://github.com/synesissoftware/recls)).
 
 
 ## Installation
@@ -87,12 +89,17 @@ For unit-testing, **mksock** depends additionally on:
 
 ### Related projects
 
-Other (similar) project include:
+Other **sistools** projects include:
 
-* [**chomp**](https://github.com/sistools/chomp)
-* [**errni**](https://github.com/sistools/errni)
-* [**lstrip**](https://github.com/sistools/lstrip)
-* [**rstrip**](https://github.com/sistools/rstrip)
+* [**chomp**](https://github.com/sistools/chomp);
+* [**errni**](https://github.com/sistools/errni) (errno on all platforms, and also GetLastError codes on Windows);
+* [**lnunique**](https://github.com/sistools/lnunique);
+* [**lslocales**](https://github.com/sistools/lslocales);
+* [**lstrip**](https://github.com/sistools/lstrip);
+* [**ReadDebugString**](https://github.com/sistools/ReadDebugString) (Windows-only);
+* [**realpath**](https://github.com/sistools/realpath) (Windows-only);
+* [**rstrip**](https://github.com/sistools/rstrip);
+* [**WriteDebugString**](https://github.com/sistools/WriteDebugString) (Windows-only);
 
 
 ### License
