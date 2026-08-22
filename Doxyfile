@@ -7,10 +7,10 @@ PROJECT_NUMBER         = 0.1.0
 OUTPUT_DIRECTORY       = _build/doxygen
 CREATE_SUBDIRS         = NO
 
-INPUT                  = mksock.h \
+INPUT                  = doc \
                          mksock.c \
-                         entry.c \
-                         doc
+                         mksock.h \
+                         entry.c
 FILE_PATTERNS          = *.h \
                          *.c \
                          *.md
