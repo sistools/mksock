@@ -2,7 +2,7 @@
 
 PROJECT_NAME           = "mksock"
 PROJECT_BRIEF          = "Creates UNIX-domain sockets"
-PROJECT_NUMBER         = 0.1.0
+PROJECT_NUMBER         = 0.1.1
 
 OUTPUT_DIRECTORY       = _build/doxygen
 CREATE_SUBDIRS         = NO

@@ -95,6 +95,15 @@ $ ./prepare_cmake.sh -m
 $ sudo cmake --install ${SIS_CMAKE_BUILD_DIR:-./_build} --config Release
 ```
 
+When **STLSoft** has not been installed, **mksock** can use an existing source
+tree instead. Supply its root directory through the **prepare_cmake.sh** option
+`--stlsoft-root-dir` or `-s`, or through the `STLSOFT` environment variable.
+
+```bash
+$ ./prepare_cmake.sh --stlsoft-root-dir ~/open-source/STLSoft
+$ STLSOFT=~/open-source/STLSoft ./prepare_cmake.sh -T
+```
+
 
 ### xTests - required only for testing
 

@@ -4,8 +4,8 @@
 
 #define SISTOOL_MKSOCK_VER_MAJOR        0
 #define SISTOOL_MKSOCK_VER_MINOR        1
-#define SISTOOL_MKSOCK_VER_PATCH        0
-#define SISTOOL_MKSOCK_VER_ALPHABETA    0x41
+#define SISTOOL_MKSOCK_VER_PATCH        1
+#define SISTOOL_MKSOCK_VER_ALPHABETA    0xFF
 
 
 /* *********************************************************
