@@ -13,7 +13,7 @@ The **mksock** program (implemented in [**entry.c**](./entry.c)) is implemented 
 
 * [**CLASP**](https://github.com/synesissoftware/CLASP) - for command-line handling;
 * [**sistools-common-c**](https://github.com/sistools/sistools-common-c) - for shared `--help` / `--version` usage helpers;
-* [**STLSoft**](https://github.com/synesissoftware/STLSoft-1.10) - for CLI utility functions;
+* [**STLSoft**](https://github.com/synesissoftware/STLSoft) - for CLI utility functions;
 
 Further, the **mksock_test** program (implemented in [**mksock_test.cpp**](./mksock_test.cpp)), which is used only to test the **mksock** library, also depends on:
 
@@ -58,6 +58,15 @@ The primary choice for installation is by use of **CMake**.
 
    In this case, you do not need to have installed [**Catch2**](https://github.com/catchorg/Catch2) or [**xTests**](https://github.com/synesissoftware/xTests); otherwise, you will need to do so (as described in [**REQUISITES.md**](./REQUISITES.md)).
 
+   If **STLSoft** has not been installed, its source-tree root can be supplied
+   with the `--stlsoft-root-dir` (or `-s`) option, or through the `STLSOFT`
+   environment variable:
+
+    ```bash
+    $ ./prepare_cmake.sh --stlsoft-root-dir ~/open-source/STLSoft
+    $ STLSOFT=~/open-source/STLSoft ./prepare_cmake.sh -T
+    ```
+
 3. Run a build of the generated **CMake**-derived build files via the
    **build_cmake.sh** script, as in:
 
@@ -80,7 +89,7 @@ The primary choice for installation is by use of **CMake**.
 
     ```plaintext
     Synesis System Tools
-    mksock v0.1.0-alpha1
+    mksock v0.1.1
     Copyright (c) 2025-2026 Synesis Information Systems
     Creates a socket
 

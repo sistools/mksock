@@ -57,10 +57,16 @@ set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT
 
 # adhere strictly to C and C++ standards plus extensions. These are actually
 # useless since we do not compile anything; they merely state our intention.
-set(CMAKE_C_STANDARD 17)
+if(NOT CMAKE_C_STANDARD)
+
+	set(CMAKE_C_STANDARD 17)
+endif()
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON) # GNU extensions and POSIX standard
-set(CMAKE_CXX_STANDARD 20)
+if(NOT CMAKE_CXX_STANDARD)
+
+	set(CMAKE_CXX_STANDARD 17)
+endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
@@ -203,7 +209,7 @@ elseif(DEFINED ENV{STLSOFT})
 	set(STLSOFT_INCLUDE_DIR $ENV{STLSOFT}/include)
 else()
 
-	set(STLSoft_REQUIRED_VERSION_ 1.11)
+	set(STLSoft_REQUIRED_VERSION_ 1.11.1)
 
 	find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
 
@@ -274,6 +280,11 @@ install(TARGETS ${PROJECT_NAME_LOWER}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+install(FILES
+	doc/${PROJECT_NAME_LOWER}.1
+	DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
+)
+
 
 # ################################################
 # examples
@@ -323,8 +334,7 @@ endif(BUILD_TESTING)
 # ##########################################################
 # completion
 
-message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VERSION}, for C${CMAKE_C_STANDARD} C++${CMAKE_CXX_STANDARD}")
+message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VERSION}, for C${CMAKE_C_STANDARD} C++${CMAKE_CXX_STANDARD}, with build type ${CMAKE_BUILD_TYPE}")
 
 
 # ############################## end of file ############################# #
-

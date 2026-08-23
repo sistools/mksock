@@ -1,6 +1,15 @@
 # mksock - Changes <!-- omit in toc -->
 
 
+## 0.1.1 - 24th August 2026
+
+* Added Doxygen API documentation (**Doxyfile**, **doc/mainpage.md**, **generate_doxygen.sh**) and a section-1 man page (**doc/mksock.1**);
+* Updated **CMakeLists.txt** for C17/C++17 defaults, STLSoft 1.11.1, man-page installation, and build diagnostics;
+* Updated helper scripts with shared CMake build-directory support and improved diagnostics;
+* Expanded CI push-branch coverage and added installation verification for the man page;
+* Modernised **.gitattributes**, **.vimrc**, and **.vscode/settings.json**;
+
+
 ## 0.1.0 - 7th August 2026
 
 * Consume **sistools-common-c** for `--help` / `--version` via **`stcc_show_help()`** / **`stcc_show_version()`**;
