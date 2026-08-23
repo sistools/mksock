@@ -76,7 +76,7 @@ Defect reports, feature requests, and pull requests are welcome on [the **mksock
 
 * [**CLASP**](https://github.com/synesissoftware/CLASP);
 * [**sistools-common-c**](https://github.com/sistools/sistools-common-c);
-* [**STLSoft 1.10**](https://github.com/synesissoftware/STLSoft-1.10);
+* [**STLSoft**](https://github.com/synesissoftware/STLSoft);
 
 
 #### Tests-only Dependencies

@@ -13,7 +13,7 @@ The **mksock** program (implemented in [**entry.c**](./entry.c)) is implemented 
 
 * [**CLASP**](https://github.com/synesissoftware/CLASP) - for command-line handling;
 * [**sistools-common-c**](https://github.com/sistools/sistools-common-c) - for shared `--help` / `--version` usage helpers;
-* [**STLSoft**](https://github.com/synesissoftware/STLSoft-1.10) - for CLI utility functions;
+* [**STLSoft**](https://github.com/synesissoftware/STLSoft) - for CLI utility functions;
 
 Further, the **mksock_test** program (implemented in [**mksock_test.cpp**](./mksock_test.cpp)), which is used only to test the **mksock** library, also depends on:
 
