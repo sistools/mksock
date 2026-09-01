@@ -1,13 +1,9 @@
 # mksock - Changes <!-- omit in toc -->
 
 
-## 0.1.4 - 1st September 2026
-
-* Replaced the deprecated **CLASP** alias terminology with `clasp_specification_t` and **`CLASP_SPECIFICATION_ARRAY_TERMINATOR`**;
-
-
 ## 0.1.3 - 1st September 2026
 
+* Replaced the deprecated **CLASP** alias terminology with `clasp_specification_t` and **`CLASP_SPECIFICATION_ARRAY_TERMINATOR`**;
 * Rely on transitive **CLASP** linkage via **`sistools-common-c::core`** rather than re-declaring it;
 
 
