@@ -3,6 +3,7 @@
 
 | Date                 | News Item                                                                  |
 | -------------------- | -------------------------------------------------------------------------- |
+| 1st September 2026   | [0.1.4 released](https://github.com/sistools/mksock/releases/tag/0.1.4)   |
 | 1st September 2026   | [0.1.3 released](https://github.com/sistools/mksock/releases/tag/0.1.3)   |
 | 27th August 2026     | [0.1.2 released](https://github.com/sistools/mksock/releases/tag/0.1.2)   |
 | 24th August 2026     | [0.1.1 released](https://github.com/sistools/mksock/releases/tag/0.1.1)   |
